@@ -1,0 +1,15 @@
+{
+  "name": "bsa_html",
+  "version": "1.0.0",
+  "description": "test for html",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.1",
+    "cypress-dotenv": "^2.0.0"
+  }
+}
