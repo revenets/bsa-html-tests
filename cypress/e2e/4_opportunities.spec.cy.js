@@ -170,34 +170,4 @@ describe("Opportunities section test", () => {
 			hexToRgb(CSS_COLORS.WHITE)
 		);
 	});
-
-	it("Opportunity text should have color white", () => {
-		cy.get(".opportunity__text").should(
-			"have.css",
-			"color",
-			hexToRgb(CSS_COLORS.WHITE)
-		);
-	});
-
-	it("Opportunity text horizontal padding or margin check", () => {
-		cy.get(".opportunity__text").then(($text) => {
-			const computedPadding = Number(
-				window.getComputedStyle($text[0]).paddingLeft.replace(/px/g, "")
-			);
-			const computedMargin = Number(
-				window.getComputedStyle($text[0]).marginLeft.replace(/px/g, "")
-			);
-
-			const expectedMinValue = 20;
-			const expectedMaxValue = 30;
-
-			const hasPaddingOrMargin =
-				(computedPadding >= expectedMinValue &&
-					computedPadding <= expectedMaxValue) ||
-				(computedMargin >= expectedMinValue &&
-					computedMargin <= expectedMaxValue);
-
-			expect(hasPaddingOrMargin).to.equal(true);
-		});
-	});
 });

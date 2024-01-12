@@ -93,7 +93,7 @@ describe("Header test", () => {
 
 	it("Last link in header nav should be subscribe button with styles", () => {
 		cy.viewport("macbook-15");
-		cy.get(".menu__link").last().as("subscribeBtn");
+		cy.get(".menu__link").eq(4).as("subscribeBtn");
 		cy.get("@subscribeBtn").contains(/subscribe/gi);
 		cy.get("@subscribeBtn")
 			.should("have.css", "color", hexToRgb(CSS_COLORS.WHITE))
