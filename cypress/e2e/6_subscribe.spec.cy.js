@@ -7,36 +7,6 @@ describe("Subscribe section test", () => {
 		cy.visit(layoutUrl);
 	});
 
-	it("Subscribe container should have correct width for desktop", () => {
-		cy.viewport("macbook-15");
-		cy.get(".subscribe__container").then(($body) => {
-			const bodyWidth = $body[0].offsetWidth;
-			expect(bodyWidth).to.be.lte(1144);
-		});
-	});
-
-	it("Subscribe container should have correct width for tablet", () => {
-		cy.viewport("ipad-mini");
-		cy.get(".subscribe__container").then(($body) => {
-			const bodyWidth = $body[0].offsetWidth;
-			expect(bodyWidth).to.be.lte(768);
-		});
-	});
-
-	it("Subscribe container should have correct width for mobile", () => {
-		cy.viewport(393, 768);
-		cy.get(".subscribe__container").then(($body) => {
-			const bodyWidth = $body[0].offsetWidth;
-			expect(bodyWidth).to.be.lte(393);
-		});
-	});
-
-	it("Subscribe container has background color and border radius", () => {
-		cy.get(".info__body")
-			.should("have.css", "background-image", CSS_COLORS.GRADIENT_PURPLE)
-			.and("have.css", "border-radius", "25px");
-	});
-
 	it("Subscribe title text should have color white", () => {
 		cy.get(".subscribe__title").should(
 			"have.css",

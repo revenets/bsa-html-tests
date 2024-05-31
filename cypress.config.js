@@ -8,6 +8,6 @@ module.exports = defineConfig({
     },
   },
   env: {
-    LAYOUT_URL: 'Add here your URL'
+    LAYOUT_URL: 'http://127.0.0.1:5500/works/hw-html-css/index.html'
   }
 });

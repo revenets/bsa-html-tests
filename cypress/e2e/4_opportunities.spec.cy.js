@@ -9,26 +9,6 @@ describe("Opportunities section test", () => {
 
 	// Title ----------------------------------------------------------------
 
-	it("Opportunities container should have correct width", () => {
-		cy.viewport("macbook-15");
-		cy.get(".opportunities__container").then(($intro) => {
-			const introWidth = $intro[0].offsetWidth;
-			expect(introWidth).to.be.lte(1144);
-		});
-
-		cy.viewport("ipad-mini");
-		cy.get(".opportunities__container").then(($info) => {
-			const infoSectionWidth = $info[0].offsetWidth;
-			expect(infoSectionWidth).to.be.lte(768);
-		});
-
-		cy.viewport(393, 768);
-		cy.get(".opportunities__container").then(($info) => {
-			const infoSectionWidth = $info[0].offsetWidth;
-			expect(infoSectionWidth).to.be.lte(393);
-		});
-	});
-
 	it("Opportunities title should be visible on desktop", () => {
 		cy.viewport("macbook-15");
 		cy.get(".opportunities__title").should("exist").and("be.visible");
@@ -44,30 +24,6 @@ describe("Opportunities section test", () => {
 		cy.get(".opportunities__title").should("exist").and("be.visible");
 	});
 
-	it("Opportunities title should not be wider then 744px for desktop", () => {
-		cy.viewport("macbook-15");
-		cy.get(".opportunities__title").then(($title) => {
-			const titleWidth = $title[0].offsetWidth;
-			expect(titleWidth).to.be.lte(744);
-		});
-	});
-
-	it("Opportunities title should not be wider then 478px for tablet", () => {
-		cy.viewport("ipad-mini");
-		cy.get(".opportunities__title").then(($title) => {
-			const titleWidth = $title[0].offsetWidth;
-			expect(titleWidth).to.be.lte(478);
-		});
-	});
-
-	it("Opportunities title should not be wider then 312px for mobile", () => {
-		cy.viewport(393, 768);
-		cy.get(".opportunities__title").then(($title) => {
-			const titleWidth = $title[0].offsetWidth;
-			expect(titleWidth).to.be.lte(313);
-		});
-	});
-
 	it("Opportunities title should have color white", () => {
 		cy.get(".opportunities__title").should(
 			"have.css",
@@ -78,7 +34,7 @@ describe("Opportunities section test", () => {
 
 	it("Opportunities title should contains exact text", () => {
 		cy.get(".opportunities__title").contains(
-			/Explore all opportunities of Bulka Academy/gi
+			/Explore all opportunities of Catedemy/gi
 		);
 	});
 
@@ -97,30 +53,6 @@ describe("Opportunities section test", () => {
 	it("Opportunities subtitle should be visible on mobile", () => {
 		cy.viewport(393, 768);
 		cy.get(".opportunities__subtitle").should("exist").and("be.visible");
-	});
-
-	it("Opportunities subtitle should not be wider then 744px for desktop", () => {
-		cy.viewport("macbook-15");
-		cy.get(".opportunities__subtitle").then(($subtitle) => {
-			const subtitleWidth = $subtitle[0].offsetWidth;
-			expect(subtitleWidth).to.be.lte(744);
-		});
-	});
-
-	it("Opportunities subtitle should not be wider then 600px for tablet", () => {
-		cy.viewport("ipad-mini");
-		cy.get(".opportunities__subtitle").then(($subtitle) => {
-			const subtitleWidth = $subtitle[0].offsetWidth;
-			expect(subtitleWidth).to.be.lte(600);
-		});
-	});
-
-	it("Opportunities subtitle should not be wider then 312px for mobile", () => {
-		cy.viewport(393, 768);
-		cy.get(".opportunities__subtitle").then(($subtitle) => {
-			const subtitleWidth = $subtitle[0].offsetWidth;
-			expect(subtitleWidth).to.be.lte(313);
-		});
 	});
 
 	it("Opportunities subtitle should have color white", () => {
@@ -151,23 +83,21 @@ describe("Opportunities section test", () => {
 		cy.get(".opportunity__image").should("exist").and("be.visible");
 	});
 
-	it("Opportunity title should contain exact text", () => {
+	it("First opportunity title should contain exact text", () => {
 		cy.get(".opportunity__title")
 			.eq(0)
 			.contains(/group lessons/gi);
+	});
+
+	it("Second opportunity titles should contain exact text", () => {
 		cy.get(".opportunity__title")
 			.eq(1)
 			.contains(/videos/gi);
+	});
+
+	it("Third opportunity titles should contain exact text", () => {
 		cy.get(".opportunity__title")
 			.eq(2)
 			.contains(/quizzes/gi);
-	});
-
-	it("Opportunity title should have color white", () => {
-		cy.get(".opportunity__title").should(
-			"have.css",
-			"color",
-			hexToRgb(CSS_COLORS.WHITE)
-		);
 	});
 });

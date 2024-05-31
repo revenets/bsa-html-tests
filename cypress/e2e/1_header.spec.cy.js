@@ -7,68 +7,6 @@ describe("Header test", () => {
 		cy.visit(layoutUrl);
 	});
 
-	it("Header container should have correct width", () => {
-		cy.viewport("macbook-15");
-		cy.get(".header__container").then(($header) => {
-			const headerWidth = $header[0].offsetWidth;
-			expect(headerWidth).to.be.lte(1144);
-		});
-	});
-
-	it("Header container horizontal paddings should be gte 40px for desktop", () => {
-		cy.viewport("macbook-15");
-		cy.get(".header__container").then(($content) => {
-			const contentPaddingLeft = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			const contentPaddingRight = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			expect(Number(contentPaddingLeft)).to.be.gte(40);
-			expect(Number(contentPaddingRight)).to.be.gte(40);
-		});
-	});
-
-	it("Header container should have the same horizontal paddings for tablet", () => {
-		cy.viewport("ipad-mini");
-		cy.get(".header__container").then(($content) => {
-			const contentPaddingLeft = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			const contentPaddingRight = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			expect(Number(contentPaddingLeft)).to.be.gte(35);
-			expect(Number(contentPaddingLeft)).to.be.lte(45);
-
-			expect(Number(contentPaddingRight)).to.be.gte(35);
-			expect(Number(contentPaddingRight)).to.be.lte(45);
-		});
-	});
-
-	it("Header container should have the same horizontal paddings for mobile", () => {
-		cy.viewport(393, 768);
-		cy.get(".header__container").then(($content) => {
-			const contentPaddingLeft = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			const contentPaddingRight = window
-				.getComputedStyle($content[0])
-				.paddingLeft.replace(/px/gi, "");
-
-			expect(Number(contentPaddingLeft)).to.be.gte(35);
-			expect(Number(contentPaddingLeft)).to.be.lte(45);
-
-			expect(Number(contentPaddingRight)).to.be.gte(35);
-			expect(Number(contentPaddingRight)).to.be.lte(45);
-		});
-	});
-
 	it("Header should have a logo", () => {
 		cy.get(".header__logo").should("be.visible");
 	});

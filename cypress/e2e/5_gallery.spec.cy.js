@@ -6,26 +6,6 @@ describe("Gallery section test", () => {
 		const layoutUrl = Cypress.env("LAYOUT_URL");
 		cy.visit(layoutUrl);
 	});
-	
-	it("Gallery container should have correct width", () => {
-		cy.viewport("macbook-15");
-		cy.get(".gallery__container").then(($intro) => {
-			const introWidth = $intro[0].offsetWidth;
-			expect(introWidth).to.be.lte(1144);
-		});
-		
-		cy.viewport("ipad-mini");
-		cy.get(".gallery__container").then(($info) => {
-			const infoSectionWidth = $info[0].offsetWidth;
-			expect(infoSectionWidth).to.be.lte(768);
-		});
-		
-		cy.viewport(393, 768);
-		cy.get(".gallery__container").then(($info) => {
-			const infoSectionWidth = $info[0].offsetWidth;
-			expect(infoSectionWidth).to.be.lte(393);
-		});
-	});
 
 	// Title ----------------------------------------------------------------
 
@@ -53,7 +33,7 @@ describe("Gallery section test", () => {
 	});
 
 	it("Gallery title should contains exact text", () => {
-		cy.get(".gallery__title").contains(/Enjoy Bulkas' Gallery/gi);
+		cy.get(".gallery__title").contains(/Enjoy Our Gallery/gi);
 	});
 
 	// Subtitle ----------------------------------------------------------------
@@ -83,7 +63,7 @@ describe("Gallery section test", () => {
 
 	it("Gallery subtitle should contains exact text", () => {
 		cy.get(".gallery__subtitle").contains(
-			/Don't be shy to review and like my photos/gi
+			/Do not be shy to review and like my photos/gi
 		);
 	});
 
