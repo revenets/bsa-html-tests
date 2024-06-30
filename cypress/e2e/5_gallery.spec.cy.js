@@ -63,7 +63,7 @@ describe("Gallery section test", () => {
 
 	it("Gallery subtitle should contains exact text", () => {
 		cy.get(".gallery__subtitle").contains(
-			/Do not be shy to review and like my photos/gi
+			/Do not be shy to review and like the photos/gi
 		);
 	});
 

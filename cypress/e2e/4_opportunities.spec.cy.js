@@ -34,7 +34,7 @@ describe("Opportunities section test", () => {
 
 	it("Opportunities title should contains exact text", () => {
 		cy.get(".opportunities__title").contains(
-			/Explore all opportunities of Catedemy/gi
+			/Explore all opportunities of Catademy/gi
 		);
 	});
 
